@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'editing_menu.dart';
-import 'checking_comments.dart';
+import 'package:restaurant_app/checking_comments.dart';
+import 'package:restaurant_app/editing_menu.dart';
 
 const optionsHeight = 100.0;
 const optionsWidth = 150.0;
-const optionsColor = Colors.blueGrey;
+const optionsColor = const Color(0xff1d1d39);
 const optionsTextColor = Colors.white;
 const optionIconColor = Colors.white;
 
 class RestaurantServices extends StatefulWidget {
+  static String restaurantServicesId = '/RestaurantServices';
   @override
   _RestaurantServicesState createState() => _RestaurantServicesState();
 }
@@ -52,7 +53,7 @@ class _RestaurantServicesState extends State<RestaurantServices> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    Navigator.pushNamed(context, '/EditingMenu');
+                    Navigator.pushNamed(context, EditingMenu.editingMenuId);
                   });
                 },
                 child: ReusableContainer(
@@ -82,7 +83,7 @@ class _RestaurantServicesState extends State<RestaurantServices> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    Navigator.pushNamed(context, '/CheckingComments');
+                    Navigator.pushNamed(context, CheckingComments.checkingCommentsId);
                   });
                 },
                 child: ReusableContainer(

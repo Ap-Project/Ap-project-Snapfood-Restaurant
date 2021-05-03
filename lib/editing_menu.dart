@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EditingMenu extends StatefulWidget {
+  static String editingMenuId = '/EditingMenu';
   @override
   _EditingMenuState createState() => _EditingMenuState();
 }

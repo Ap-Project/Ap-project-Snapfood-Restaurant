@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CheckingComments extends StatefulWidget {
+  static String checkingCommentsId = '/CheckingComments';
   @override
   _CheckingCommentsState createState() => _CheckingCommentsState();
 }

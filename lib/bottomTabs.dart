@@ -4,6 +4,7 @@ import 'dashboard.dart';
 import 'ordering.dart';
 
 class BottomTabs extends StatefulWidget {
+  static String bottomTabsId = '/BottomTabs';
   @override
   _BottomTabsState createState() => _BottomTabsState();
 }
