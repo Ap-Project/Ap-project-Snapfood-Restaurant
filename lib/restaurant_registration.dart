@@ -87,10 +87,6 @@ class _RestaurantRegistrationScreenState
                   height: 25.0,
                 ),
                 DropdownScreen(),
-                //TODO: put menu
-                // TextFormField(
-                //   decoration: myDecoration.TextFormFieldDecoration('Enter your food category', 'food category'),
-                // ),
                 SizedBox(
                   height: 25.0,
                 ),

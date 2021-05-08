@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class CheckingComments extends StatefulWidget {
   static String checkingCommentsId = '/CheckingComments';
   @override
@@ -12,6 +13,12 @@ class _CheckingCommentsState extends State<CheckingComments> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Checking comments'),
+        actions: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Icon(Icons.mail),
+          ),
+        ],
       ),
     );
   }

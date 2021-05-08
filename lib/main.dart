@@ -7,6 +7,7 @@ import 'package:common_codes/screens/welcome_screen.dart';
 import 'login_screen.dart';
 import 'restaurant_registration.dart';
 import 'bottomTabs.dart';
+import 'orders_detail_screen.dart';
 
 void main() {
   runApp(RestaurantApp());
@@ -25,6 +26,7 @@ class RestaurantApp extends StatelessWidget {
         RestaurantRegistrationScreen.restaurantRegistrationId: (context) => RestaurantRegistrationScreen(),
         RestaurantServices.restaurantServicesId : (context) => RestaurantServices(),
         BottomTabs.bottomTabsId : (context) => BottomTabs(),
+        OrdersDetailScreen.ordersDetailScreenId : (context) => OrdersDetailScreen(),
       },
       title: 'SnapFood',
       theme: ThemeData(

@@ -2,7 +2,11 @@ import 'restaurant_registration.dart';
 
 class RegisteredRestaurantList {
   List<RestaurantRegistration> _registeredList = [
-    RestaurantRegistration('sdgegh','sdgf',FoodCategories.CASUAL_RESTAURANT,'09129494168','ghazal1234'),
+    RestaurantRegistration('Buono Restaurant','Tehran Province, Tehran, 2nd St, Iran',FoodCategories.Italian,'09129494168','Bouno1234'),
+    RestaurantRegistration('Khoroos Fried Chicken','Tehran Province, Tehran, District 1, پلاک ۷۴/۳، Andarzgoo Blvd, Iran',FoodCategories.FAST_FOOD,'09129494168','Khoroos1234'),
+    RestaurantRegistration('Lamiz Coffee','Tehran, District 3, Mirdamad Blvd, Iran',FoodCategories.COFFEEHOUSE,'09129494168','Lamiz1234'),
+    RestaurantRegistration('Nayeb Restaurant','Tehran, St ,Vozara Ave, 11th, No. 30, Iran',FoodCategories.Persian,'09129494168','Nayeb1234'),
+
   ];
 
   void add(RestaurantRegistration r) {

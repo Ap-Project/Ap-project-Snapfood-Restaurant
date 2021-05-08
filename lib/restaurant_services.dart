@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:restaurant_app/checking_comments.dart';
 import 'package:restaurant_app/editing_menu.dart';
+import 'package:restaurant_app/orders_detail_screen.dart';
 
 const optionsHeight = 100.0;
 const optionsWidth = 150.0;
@@ -12,6 +13,7 @@ const optionIconColor = Colors.white;
 
 class RestaurantServices extends StatefulWidget {
   static String restaurantServicesId = '/RestaurantServices';
+
   @override
   _RestaurantServicesState createState() => _RestaurantServicesState();
 }
@@ -35,8 +37,8 @@ class _RestaurantServicesState extends State<RestaurantServices> {
           ),
         ],
       ),
-      // TODO :(1) put this column in SingleChildScrollView
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
         children: [
           Spacer(),
           GestureDetector(
@@ -83,7 +85,8 @@ class _RestaurantServicesState extends State<RestaurantServices> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    Navigator.pushNamed(context, CheckingComments.checkingCommentsId);
+                    Navigator.pushNamed(
+                        context, CheckingComments.checkingCommentsId);
                   });
                 },
                 child: ReusableContainer(
@@ -95,14 +98,22 @@ class _RestaurantServicesState extends State<RestaurantServices> {
                         optionText: 'Checking comments')),
               ),
               Spacer(),
-              ReusableContainer(
-                  height: optionsHeight,
-                  width: optionsWidth,
-                  color: optionsColor,
-                  childDesign: ContainerDesign(
-                    optionIcon: Icons.event_note_outlined,
-                    optionText: 'Orders history',
-                  )),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Navigator.pushNamed(
+                        context, OrdersDetailScreen.ordersDetailScreenId);
+                  });
+                },
+                child: ReusableContainer(
+                    height: optionsHeight,
+                    width: optionsWidth,
+                    color: optionsColor,
+                    childDesign: ContainerDesign(
+                      optionIcon: Icons.event_note_outlined,
+                      optionText: 'Orders history',
+                    )),
+              ),
               Spacer(),
             ],
           ),
@@ -123,7 +134,6 @@ class _RestaurantServicesState extends State<RestaurantServices> {
           ),
         ],
       ),
-
     );
   }
 }

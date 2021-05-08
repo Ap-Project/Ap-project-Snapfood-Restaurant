@@ -30,10 +30,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   common_codes:
     path: ../common_codes
+  intl: ^0.16.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

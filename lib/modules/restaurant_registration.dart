@@ -5,6 +5,8 @@ enum FoodCategories{
   FAST_FOOD,
   PIZZA,
   BREAKFAST,
+  Italian,
+  Persian,
 }
 class RestaurantRegistration{
   String _restaurantName;
