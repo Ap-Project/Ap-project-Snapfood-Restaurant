@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/bottomTabs.dart';
+import 'package:restaurant_app/screens/bottomTabs.dart';
 import 'package:restaurant_app/modules/restaurant_registration.dart';
 import 'package:restaurant_app/modules/registered_restaurant_list.dart';
 import 'package:common_codes/modules/identity_information.dart';
 import 'package:common_codes/screens/decoration.dart';
 import 'bottomTabs.dart';
 import 'food_category_menu.dart';
+import 'map.dart';
 
 const backgroundColor = Colors.white;
 const buttonColor = const Color(0XFFd83e56);
@@ -31,12 +33,11 @@ class _RestaurantRegistrationScreenState
   String obscurePasswordText = 'show password';
   int countIconChanges = 0;
 
-  void _toggle(){
+  void _toggle() {
     setState(() {
-      _obscureText = ! _obscureText;
+      _obscureText = !_obscureText;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,19 +70,40 @@ class _RestaurantRegistrationScreenState
                 SizedBox(
                   height: 25.0,
                 ),
-                TextFormField(
-                  keyboardType: TextInputType.multiline,
-                  maxLines: null,
-                  decoration: myDecoration.TextFormFieldDecoration(
-                      'Enter your restaurant address', 'restaurant address'),
-                  onSaved: (String value) {
-                    address = value;
+                // TextFormField(
+                //   keyboardType: TextInputType.multiline,
+                //   maxLines: null,
+                //   decoration: myDecoration.TextFormFieldDecoration(
+                //       'Enter your restaurant address', 'restaurant address'),
+                //   onSaved: (String value) {
+                //     address = value;
+                //   },
+                //   validator: (value) {
+                //     if (value.isEmpty || value == null)
+                //       return 'please enter your restaurant address';
+                //     return null;
+                //   },
+                // ),
+                GestureDetector(
+                  onTap: (){
+                    setState(() {
+                      Navigator.pushNamed(context, Map.MapId);
+                    });
                   },
-                  validator: (value) {
-                    if (value.isEmpty || value == null)
-                      return 'please enter your restaurant address';
-                    return null;
-                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: buttonColor),
+                      borderRadius: BorderRadius.circular(3.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text("Address",
+                        style: TextStyle(
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    )
+                  ),
                 ),
                 SizedBox(
                   height: 25.0,
@@ -104,8 +126,9 @@ class _RestaurantRegistrationScreenState
                       return 'please enter your phone number';
                     else if (!identityInformation.validPhoneNumber(value))
                       return 'Invalid phone number!';
-                    else if (registeredRestaurantList.phoneNumberExistence(
-                        value) != -1) return 'this phone number already exist';
+                    else if (registeredRestaurantList
+                            .phoneNumberExistence(value) !=
+                        -1) return 'this phone number already exist';
                     return null;
                   },
                 ),
@@ -130,14 +153,13 @@ class _RestaurantRegistrationScreenState
                 ListTile(
                   leading: Icon(obscurePasswordIcon),
                   title: Text(obscurePasswordText),
-                  onTap: (){
+                  onTap: () {
                     setState(() {
-                      if(countIconChanges == 0){
+                      if (countIconChanges == 0) {
                         obscurePasswordIcon = Icons.check_box_outlined;
-                        obscurePasswordText = 'hide password';
+                        obscurePasswordText = 'hidden';
                         countIconChanges = 1;
-                      }
-                      else{
+                      } else {
                         obscurePasswordIcon = Icons.check_box_outline_blank;
                         obscurePasswordText = 'show password';
                         countIconChanges = 0;
@@ -171,8 +193,7 @@ class _RestaurantRegistrationScreenState
                                 identityInformation.phoneNumber,
                                 identityInformation.password));
                           });
-                          Navigator.pushNamed(
-                              context, BottomTabs.bottomTabsId);
+                          Navigator.pushNamed(context, BottomTabs.bottomTabsId);
                         }
                       },
                     ),

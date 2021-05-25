@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/bottomTabs.dart';
-import 'package:restaurant_app/modules/restaurant_registration.dart';
+import 'package:restaurant_app/screens/bottomTabs.dart';
 import 'package:restaurant_app/modules/registered_restaurant_list.dart';
 import 'package:common_codes/modules/identity_information.dart';
 import 'package:common_codes/screens/decoration.dart';
@@ -51,7 +50,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 onSaved: (String value) {
                   identityInformation.phoneNumber = value;
-                  indexInRestaurantList = registeredRestaurantList.phoneNumberExistence(value);
                 },
                 validator: (value) {
                   if (value.isEmpty || value == null)
@@ -60,6 +58,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     return 'Invalid phone number!';
                   else if (registeredRestaurantList.phoneNumberExistence(
                       value) == -1) return 'this phone number hasn\'t registered yet';
+                  else{
+                    indexInRestaurantList = registeredRestaurantList.phoneNumberExistence(value);
+                  }
                   return null;
                 },
               ),
@@ -80,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   else if(!registeredRestaurantList.checkPassword(value, indexInRestaurantList)){
                     print(value);
                     print(identityInformation.phoneNumber);
+                    print(indexInRestaurantList);
                     return 'Incorrect password';
                   }
                   return null;

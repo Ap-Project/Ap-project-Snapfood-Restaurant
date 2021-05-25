@@ -1,7 +1,7 @@
 import 'package:common_codes/screens/decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'modules/dashboard_details.dart';
+import 'package:restaurant_app/modules/dashboard_details.dart';
 
 class Dashboard extends StatefulWidget {
   @override

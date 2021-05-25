@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:restaurant_app/checking_comments.dart';
-import 'package:restaurant_app/editing_menu.dart';
-import 'package:restaurant_app/orders_detail_screen.dart';
+import 'package:restaurant_app/screens/checking_comments_screen.dart';
+import 'package:restaurant_app/screens/editing_menu.dart';
+import 'package:restaurant_app/screens/orders_detail_screen.dart';
+import 'package:restaurant_app/screens/scope_of_submission.dart';
 
 const optionsHeight = 100.0;
 const optionsWidth = 150.0;
-const optionsColor = const Color(0xff1d1d39);
+const optionsColor = const Color(0XFF371c5a);
 const optionsTextColor = Colors.white;
 const optionIconColor = Colors.white;
 
@@ -43,10 +44,19 @@ class _RestaurantServicesState extends State<RestaurantServices> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              setState(() {});
+              setState(() {
+                Navigator.pushNamed(context, ScopeOfSubmission.scopeOfSubmissionId);
+              });
             },
             child: ReusableContainer(
-                height: 90, width: size.width, color: optionsColor),
+              height: 120,
+              width: size.width,
+              color: optionsColor,
+              childDesign: ContainerDesign(
+                optionIcon: Icons.motorcycle_rounded,
+                optionText: "Scope of submission",
+              ),
+            ),
           ),
           Spacer(),
           Row(
@@ -86,7 +96,7 @@ class _RestaurantServicesState extends State<RestaurantServices> {
                 onTap: () {
                   setState(() {
                     Navigator.pushNamed(
-                        context, CheckingComments.checkingCommentsId);
+                        context, CheckingCommentsScreen.checkingCommentsId);
                   });
                 },
                 child: ReusableContainer(

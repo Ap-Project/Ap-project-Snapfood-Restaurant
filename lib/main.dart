@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/bottomTabs.dart';
-import 'package:restaurant_app/checking_comments.dart';
-import 'package:restaurant_app/editing_menu.dart';
-import 'package:restaurant_app/restaurant_services.dart';
+import 'package:restaurant_app/screens/bottomTabs.dart';
+import 'package:restaurant_app/screens/checking_comments_screen.dart';
+import 'package:restaurant_app/screens/editing_menu.dart';
+import 'package:restaurant_app/screens/map.dart';
+import 'package:restaurant_app/screens/restaurant_services.dart';
 import 'package:common_codes/screens/welcome_screen.dart';
-import 'login_screen.dart';
-import 'restaurant_registration.dart';
-import 'bottomTabs.dart';
-import 'orders_detail_screen.dart';
+import 'package:restaurant_app/screens/scope_of_submission.dart';
+import 'screens/login_screen.dart';
+import 'screens/restaurant_registration.dart';
+import 'screens/orders_detail_screen.dart';
+
 
 void main() {
   runApp(RestaurantApp());
@@ -20,13 +22,15 @@ class RestaurantApp extends StatelessWidget {
       initialRoute: WelcomeScreen.welcomeScreenId,
       routes: {
         EditingMenu.editingMenuId: (context) => EditingMenu(),
-        CheckingComments.checkingCommentsId : (context) => CheckingComments(),
+        CheckingCommentsScreen.checkingCommentsId : (context) => CheckingCommentsScreen(),
         WelcomeScreen.welcomeScreenId : (context) => WelcomeScreen(registrationRouteName: RestaurantRegistrationScreen.restaurantRegistrationId,loginRouteName: LoginScreen.loginScreenId),
         LoginScreen.loginScreenId : (context) => LoginScreen(),
         RestaurantRegistrationScreen.restaurantRegistrationId: (context) => RestaurantRegistrationScreen(),
         RestaurantServices.restaurantServicesId : (context) => RestaurantServices(),
         BottomTabs.bottomTabsId : (context) => BottomTabs(),
         OrdersDetailScreen.ordersDetailScreenId : (context) => OrdersDetailScreen(),
+        Map.MapId : (context) => Map(),
+        ScopeOfSubmission.scopeOfSubmissionId : (context) => ScopeOfSubmission(),
       },
       title: 'SnapFood',
       theme: ThemeData(

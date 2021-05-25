@@ -1,4 +1,6 @@
 
+import 'package:latlong2/latlong.dart';
+
 enum FoodCategories{
   COFFEEHOUSE,
   CASUAL_RESTAURANT,
@@ -14,7 +16,8 @@ class RestaurantRegistration{
   FoodCategories _foodCategories;
   String phoneNumber;
   String password;
-  RestaurantRegistration(this._restaurantName,this._restaurantAddress,this._foodCategories,this.phoneNumber,this.password);
+  LatLng latLng;
+  RestaurantRegistration(this._restaurantName,this._restaurantAddress,this._foodCategories,this.phoneNumber,this.password,{this.latLng});
 
   //ignore: unnecessary_getters_setters
   set restaurantName(String value) {

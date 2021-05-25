@@ -19,10 +19,14 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.12.0 <2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
+
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -31,6 +35,15 @@ dependencies:
   common_codes:
     path: ../common_codes
   intl: ^0.16.0
+  flutter_map: ^0.12.0
+  latlong2: ^0.8.0
+  geocoder: ^0.2.1
+
+#  flutter_map: ^0.12.0
+#  user_location:
+#    git:
+#      url: https://github.com/igaurab/user_location_plugin.git
+#  flutter_osm_plugin: ^0.7.5+2
 
 dev_dependencies:
   flutter_test:
@@ -43,13 +56,17 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+#  plugin:
+#    platforms:
+#      android:
+#        package: app.hamza.dali.flutter_osm_plugin
+#        pluginClass: FlutterOsmPlugin
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
 

@@ -1,22 +1,15 @@
+import 'package:latlong2/latlong.dart';
+import 'package:flutter/material.dart';
+
 class OrdersDetail{
-  DateTime _dateTime;
-  String _trackingCode;
-  int _orderCost;
-  String _customerName;
-  bool _orderState;
-  OrdersDetail(this._dateTime,this._trackingCode,this._orderCost,this._customerName,this._orderState);
+  DateTime dateTime;
+  String trackingCode;
+  int orderCost;
+  String customerName;
+  bool orderState;
+  String address;
+  LatLng latLng;
+  Text isSupported;
+  OrdersDetail({this.dateTime,this.trackingCode,this.orderCost,this.customerName,this.orderState,this.address,this.latLng,this.isSupported});
 
-  DateTime get dateTime => _dateTime;
-
-  String get trackingCode => _trackingCode;
-
-  bool get orderState => _orderState;
-
-  String get customerName => _customerName;
-
-  int get orderCost => _orderCost;
-
-  set orderState(bool value) {
-    _orderState = value;
-  }
 }
