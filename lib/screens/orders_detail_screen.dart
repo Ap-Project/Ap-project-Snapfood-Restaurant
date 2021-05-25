@@ -77,8 +77,6 @@ class _OrdersDetailScreenState extends State<OrdersDetailScreen> {
                           });
                         },
                       ),
-
-
                     ],
                   ),
                   decoration: myDecoration.myBoxDecoration(),

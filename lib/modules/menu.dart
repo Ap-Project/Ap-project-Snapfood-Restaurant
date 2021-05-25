@@ -10,4 +10,8 @@ class Menu{
     Food(imageAsset: 'assets/images/noPic.jpg', name: 'Cola', price: 7100),
     Food(imageAsset: 'assets/images/noPic.jpg', name: 'Cola', price: 7100),
   ];
+
+  void addToMenu(Food food){
+    menu.add(food);
+  }
 }

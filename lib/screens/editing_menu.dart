@@ -4,6 +4,7 @@ import 'package:common_codes/modules/foods.dart';
 import 'package:restaurant_app/modules/menu.dart';
 import 'package:common_codes/screens/search.dart';
 import 'package:common_codes/screens/TopMenus.dart';
+import 'package:restaurant_app/screens/adding_foods_to_menu.dart';
 import 'package:restaurant_app/screens/show_details.dart';
 
 const button = const Color(0XFFd83e56);
@@ -18,6 +19,13 @@ class EditingMenu extends StatefulWidget {
 class _EditingMenuState extends State<EditingMenu> {
   Menu menu = new Menu();
 
+  void addingFood(Food food) {
+    setState(() {
+      menu.menu.add(food);
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +35,13 @@ class _EditingMenuState extends State<EditingMenu> {
           style: TextStyle(
               fontSize: 22.0, fontWeight: FontWeight.w600, letterSpacing: 1.2),
         ),
+        actions: [
+          IconButton(icon: Icon(Icons.add), onPressed: (){
+              setState(() {
+               Navigator.push(context,  MaterialPageRoute(builder: (context) => AddingFoods(menu)));
+              });
+          })
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -41,6 +56,7 @@ class _EditingMenuState extends State<EditingMenu> {
                 shrinkWrap: true,
                 itemCount: menu.menu.length,
                 itemBuilder: (context, index) {
+                  print(menu.menu.length);
                   void changeName(String newName) {
                     menu.menu.elementAt(index).name = newName;
                   }

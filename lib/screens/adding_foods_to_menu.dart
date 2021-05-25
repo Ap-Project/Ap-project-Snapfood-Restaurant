@@ -1,46 +1,44 @@
-import 'package:flutter/material.dart';
 import 'package:common_codes/modules/foods.dart';
+import 'package:flutter/material.dart';
 import 'package:common_codes/screens/decoration.dart';
-import 'package:restaurant_app/screens/editing_menu.dart';
+import 'package:restaurant_app/modules/menu.dart';
 
-class ShowDetails extends StatefulWidget {
-  final Function changeName;
-  final Function changePrice;
-  final Function changeImage;
-  final Food food;
+class AddingFoods extends StatefulWidget {
+  final Menu menu;
 
-  ShowDetails(this.changeName,this.changePrice,this.changeImage,this.food);
+  AddingFoods(this.menu);
+
+  static String addingFoodsId = '/AddingFoods';
 
   @override
-  _ShowDetailsState createState() => _ShowDetailsState();
+  _AddingFoodsState createState() => _AddingFoodsState();
 }
 
-class _ShowDetailsState extends State<ShowDetails> {
+class _AddingFoodsState extends State<AddingFoods> {
   final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0.0,
-          title: Text('Show Details'),
-        ),
-        body: Form(
-          key: _formKey,
+    String foodName = '';
+    double foodPrice = 0;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Adding foods"),
+      ),
+      body: Form(
+        key: _formKey,
+        child: Container(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 TextFormField(
                   decoration: myDecoration.TextFormFieldDecoration(
-                    'Enter new Name',
+                    'Enter Food\'s name',
                     'Food\'s name',
                   ),
-                  onSaved: (String value) {
-                    widget.food.name = value;
+                  onSaved: (value) {
+                    foodName = value;
                   },
                 ),
                 SizedBox(
@@ -49,9 +47,9 @@ class _ShowDetailsState extends State<ShowDetails> {
                 TextFormField(
                   keyboardType: TextInputType.phone,
                   decoration: myDecoration.TextFormFieldDecoration(
-                      'Enter new price', 'Food\'s price'),
-                  onSaved: (String value) {
-                    widget.food.price = double.parse(value);
+                      'Enter food\'s price', 'Food\'s price'),
+                  onSaved: (value) {
+                    foodPrice = double.parse(value);
                   },
                 ),
                 SizedBox(
@@ -64,18 +62,19 @@ class _ShowDetailsState extends State<ShowDetails> {
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                     child: MaterialButton(
                       child: Text(
-                        'Save changes',
+                        'Add food',
                       ),
                       minWidth: 200.0,
                       height: 42.0,
                       onPressed: () {
-                          setState(() {
-                            _formKey.currentState.save();
-                            widget.changeName(widget.food.name);
-                            widget.changePrice(widget.food.price);
-                          });
-                          // Navigator.pushNamed(
-                          //     context, BottomTabs.bottomTabsId);
+                        setState(() {
+                          _formKey.currentState.save();
+                          widget.menu.addToMenu(Food(
+                              imageAsset: '', name: foodName, price: foodPrice));
+                          print(widget.menu.menu.length);
+                        });
+                        // Navigator.pushNamed(
+                        //     context, BottomTabs.bottomTabsId);
                       },
                     ),
                   ),
