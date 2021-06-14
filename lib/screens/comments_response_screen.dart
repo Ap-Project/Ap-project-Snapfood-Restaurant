@@ -59,7 +59,7 @@ class _CommentResponseScreenState extends State<CommentResponseScreen> {
                   ),
                 ),
                 ListTile(
-                  leading: myTextStyle(
+                  leading: MyTextStyle(
                     text: 'Response :',
                   ),
                   title: Text(widget.checkingComments.response),

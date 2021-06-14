@@ -118,7 +118,7 @@ class _CheckingCommentsScreenState extends State<CheckingCommentsScreen> {
                                 trailing: Container(
                                   height: 30.0,
                                   width: 50.0,
-                                  child: Center(child: myTextStyle(text: newOrderedList.elementAt(index).point,textColor: Colors.white,)),
+                                  child: Center(child: MyTextStyle(text: newOrderedList.elementAt(index).point,textColor: Colors.white,)),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5.0),
                                     color: Colors.green,

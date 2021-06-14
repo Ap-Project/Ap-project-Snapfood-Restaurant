@@ -35,9 +35,10 @@ dependencies:
   common_codes:
     path: ../common_codes
   intl: ^0.16.0
-  flutter_map: ^0.12.0
+#  flutter_map: ^0.12.0
   latlong2: ^0.8.0
   geocoder: ^0.2.1
+  rflutter_alert: ^1.0.2
 
 #  flutter_map: ^0.12.0
 #  user_location:
